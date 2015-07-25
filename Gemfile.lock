@@ -1,0 +1,14 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    atlas (1.0.0)
+      excon (~> 0.45)
+      json (~> 1.8)
+    excon (0.45.4)
+    json (1.8.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  atlas (~> 1.0)
