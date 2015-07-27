@@ -1,3 +1,3 @@
 source 'https://rubygems.org'
 
-gem 'atlas', '~> 1.0'
+gem 'atlas', '~> 1.1'
