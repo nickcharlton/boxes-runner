@@ -7,7 +7,7 @@ rescue LoadError
 end
 
 def die(message = nil)
-  $stderr.puts "#{$PROGRAM_NAME} failed with code: #{$CHILD_STATUS.exitstatus}"
+  $stderr.puts "#{$PROGRAM_NAME} failed with code: #{$CHILD_STATUS}"
   $stderr.puts "#{message}" if message
   exit 1
 end
