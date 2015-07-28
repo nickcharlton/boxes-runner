@@ -28,6 +28,8 @@ providers = %w(virtualbox vmware)
 providers.each do |provider|
   Dir.chdir('boxes') do
     puts "Starting build for: #{box_name}-#{provider}..."
+    $stdout.flush
+
     system("rake build:#{box_name}-#{provider}") ||
       die("Unable to build: #{box_name}-#{provider}")
   end
@@ -39,9 +41,11 @@ Atlas.configure do |config|
 end
 
 puts 'Fetching box details from Atlas...'
+$stdout.flush
 box = Atlas::Box.find("boxesio/#{box_name}")
 
 puts "Creating version: #{box_version}..."
+$stdout.flush
 version = box.create_version(version: box_version)
 
 # create new providers for each provider
@@ -49,9 +53,11 @@ providers.each do |name|
   file = File.open("boxes/#{box_name}-#{name}.box")
 
   puts "Creating provider: #{name}..."
+  $stdout.flush
   provider = version.create_provider(name: name)
 
   puts 'Uploading...'
+  $stdout.flush
   provider.upload(file)
 
   file.close
@@ -59,10 +65,12 @@ end
 
 # release the version
 puts "Releasing version..."
+$stdout.flush
 version.release
 
 # and done
 puts 'Run complete.'
 puts "Built #{box_name} (#{providers.join(' ')}) successfully."
+$stdout.flush
 
 exit 0
