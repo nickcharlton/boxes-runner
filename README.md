@@ -5,6 +5,8 @@ set" of [boxes][] builds. It's intended to be placed into [Jenkins][] (or
 similar) and run periodically. It takes the output from a run and uploads the
 artifacts to [Atlas][] using [atlas-ruby][].
 
+`jenkins.sh` holds the script which is used in production.
+
 ## Usage
 
 This has two stages to it. `bootstrap` configures the environment by fetching
