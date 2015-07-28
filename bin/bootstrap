@@ -12,5 +12,5 @@ def die(message = nil)
   exit 1
 end
 
-system('git clone -b 2.0.0 git@github.com:nickcharlton/boxes.git boxes') ||
+system('git clone -b 2.0.0 https://github.com/nickcharlton/boxes.git boxes') ||
   die('Couldn\'t clone boxes repo at 2.0.0.')
