@@ -58,7 +58,14 @@ providers.each do |name|
 
   puts 'Uploading...'
   $stdout.flush
-  provider.upload(file)
+  begin
+    provider.upload(file)
+  rescue Atlas::Errors::TimeoutError
+    puts 'Failed to upload, trying again...'
+    $stdout.flush
+
+    provider.upload(file)
+  end
 
   file.close
 end
