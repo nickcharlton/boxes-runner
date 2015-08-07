@@ -51,10 +51,11 @@ version = box.create_version(version: box_version)
 # create new providers for each provider
 providers.each do |name|
   file = File.open("boxes/#{box_name}-#{name}.box")
+  provider_name = name == 'vmware' ? 'vmware_desktop' : name
 
-  puts "Creating provider: #{name}..."
+  puts "Creating provider: #{provider_name}..."
   $stdout.flush
-  provider = version.create_provider(name: name)
+  provider = version.create_provider(name: provider_name)
 
   puts 'Uploading...'
   $stdout.flush
