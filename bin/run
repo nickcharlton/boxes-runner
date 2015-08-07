@@ -20,6 +20,7 @@ die('box argument must be provided') unless ARGV.length == 1
 # collect everything we need
 start_time = ENV['BOXES_START_TIME'] || Time.now.utc
 boxes_version = '2.0.0'
+atlas_user = ENV['ATLAS_USER'] || 'boxesio'
 box_name = ARGV[0]
 box_version = "#{boxes_version}.#{start_time.strftime('%Y%m%d%H%M%S')}"
 providers = %w(virtualbox vmware)
@@ -42,7 +43,7 @@ end
 
 puts 'Fetching box details from Atlas...'
 $stdout.flush
-box = Atlas::Box.find("boxesio/#{box_name}")
+box = Atlas::Box.find("#{atlas_user}/#{box_name}")
 
 puts "Creating version: #{box_version}..."
 $stdout.flush
