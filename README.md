@@ -25,6 +25,11 @@ Given the nature of run (executing the builds), it aims to fail quickly so the
 tool running it can mark it as failed and move on, aiming to avoid leaving
 things in a funny state.
 
+### Environment Variables
+
+* `BOXES_BUILD_TIME`: Used to coordinate the time a set of builds is run.
+* `ATLAS_USER`: The user under which the box should be handled.
+
 ## Author
 
 Copyright (c) 2015 Nick Charlton <nick@nickcharlton.net>
