@@ -4,16 +4,20 @@ GEM
     atlas (1.2.1)
       excon (~> 0.45)
       json (~> 1.8)
+    boxes (2.0.0)
+      claide (~> 0.9)
+      colored (~> 1.2)
+    claide (0.9.1)
+    colored (1.2)
     excon (0.45.4)
     json (1.8.3)
-    rake (10.4.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   atlas (~> 1.2)
-  rake (~> 10.4)
+  boxes (~> 2.0)
 
 BUNDLED WITH
    1.10.6
