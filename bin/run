@@ -15,25 +15,27 @@ def die(message = nil)
 end
 
 # ensure we know which to build
-die('box argument must be provided') unless ARGV.length == 1
+die('box arguments must be provided') unless ARGV.length == 3
 
 # collect everything we need
 start_time = ENV['BOXES_START_TIME'] || Time.now.utc
 boxes_version = '2.0.0'
 atlas_user = ENV['ATLAS_USER'] || 'boxesio'
 box_name = ARGV[0]
+box_template = ARGV[1]
+box_scripts = ARGV[2]
 box_version = "#{boxes_version}.#{start_time.strftime('%Y%m%d%H%M%S')}"
 providers = %w(virtualbox vmware)
 
 # run a build for each provider
 providers.each do |provider|
-  Dir.chdir('boxes') do
-    puts "Starting build for: #{box_name}-#{provider}..."
-    $stdout.flush
+  puts "Starting build for: #{box_name}-#{provider}..."
+  $stdout.flush
 
-    system("rake build:#{box_name}-#{provider}") ||
-      die("Unable to build: #{box_name}-#{provider}")
-  end
+  system("bundle exec boxes build --name=#{box_name}-#{provider} "\
+         "--template=#{box_template} --provider=#{provider} "\
+         "--scripts=#{box_scripts}") ||
+    die("Unable to build: #{box_name}-#{provider}")
 end
 
 # setup Atlas and upload them
@@ -51,7 +53,7 @@ version = box.create_version(version: box_version)
 
 # create new providers for each provider
 providers.each do |name|
-  file = File.open("boxes/#{box_name}-#{name}.box")
+  file = File.open("#{box_name}-#{name}.box")
   provider_name = name == 'vmware' ? 'vmware_desktop' : name
 
   puts "Creating provider: #{provider_name}..."
