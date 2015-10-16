@@ -1,0 +1,39 @@
+---
+precise64-standard:
+  template: ubuntu/precise64
+  scripts:
+    - puppet.sh
+    - chef.sh
+precise64-ansible:
+  template: ubuntu/precise64
+  scripts:
+    - ansible.sh
+precise64-chef:
+  template: ubuntu/precise64
+  scripts:
+    - chef.sh
+precise64-puppet:
+  template: ubuntu/precise64
+  scripts:
+    - puppet.sh
+trusty64-standard:
+  template: ubuntu/trusty64
+  scripts:
+    - puppet.sh
+    - chef.sh
+trusty64-ansible:
+  template: ubuntu/trusty64
+  scripts:
+    - ansible.sh
+trusty64-chef:
+  template: ubuntu/trusty64
+  scripts:
+    - chef.sh
+trusty64-puppet:
+  template: ubuntu/trusty64
+  scripts:
+    - puppet.sh
+ruby-box:
+  template: ubuntu/trusty64
+  scripts:
+    - ruby.sh
