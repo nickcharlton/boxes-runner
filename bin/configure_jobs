@@ -1,0 +1,47 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'bundler/setup'
+rescue LoadError
+  puts 'You must `gem install bundler` and `bundle install` to run this.'
+end
+
+require 'jenkins_api_client'
+
+config = ->(k) { ENV[k] || fail("#{k} must be configured.") }
+
+jenkins = JenkinsApi::Client.new(server_up: '127.0.0.1',
+                                 username: config['JENKINS_USERNAME'],
+                                 password: config['JENKINS_PASSWORD'])
+
+boxes = YAML.load_file('boxes.yml')
+
+boxes.each do |name, metadata|
+  template = metadata['template']
+  scripts = metadata['scripts'].join(',')
+
+  command = <<-EOS
+    #!/bin/bash
+
+    export PATH="/usr/local/bin:$PATH"
+
+    source /usr/local/share/chruby/chruby.sh
+    chruby 2.2.2
+
+    bundle install
+    bundle exec bin/run #{name} #{template} #{scripts}
+  EOS
+
+  job_spec = {
+    name: "boxes-#{name}",
+    scm_provider: 'git',
+    scm_url: 'https://github.com/nickcharlton/boxes-runner.git',
+    scm_branch: 'master',
+    notification_email: config['NOTIFICATION_EMAIL'],
+    shell_command: command,
+    keep_dependencies: false,
+    concurrent_build: false
+  }
+
+  jenkins.job.create_or_update_freestyle(job_spec)
+end
