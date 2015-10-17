@@ -1,34 +1,31 @@
 # boxes-runner
 
-This is a project that wraps up all of the requirements to run the "standard
-set" of [boxes][] builds. It's intended to be placed into [Jenkins][] (or
-similar) and run periodically. It takes the output from a run and uploads the
-artifacts to [Atlas][] using [atlas-ruby][].
+This small project gets the standard [boxes][] builds running inside
+[Jenkins][]. It creates a Jenkins job for each of the builds listed inside
+`boxes.yml` (with `configure_jobs`) and runs a build, taking the output and
+uploading it to [Atlas][] (using [atlas-ruby][]) (with `run`).
 
-`jenkins.sh` holds the script which is used in production.
+`jenkins.sh` gives the script used to spawn the initial configuration job.
 
 ## Usage
 
-This has two stages to it. `bootstrap` configures the environment by fetching
-the latest release of [boxes][]. `run` is a simplification of the build →
-configure → upload flow.
+The expectation is that this project maintains all of the Jenkins jobs, so when
+changes are made here, they will be automatically propagated across the Jenkins
+instance. Otherwise it's a case of configuring some 8 or more jobs manually.
 
-```sh
-git clone git://github.com/nickcharlton/boxes-runner.git
-cd boxes-runner
-
-bundle exec bin/boostrap
-bundle exec bin/run wheezy64-standard
-```
-
-Given the nature of run (executing the builds), it aims to fail quickly so the
-tool running it can mark it as failed and move on, aiming to avoid leaving
-things in a funny state.
+This project should be setup in Jenkins to run on each push, using something
+like the script contained in `jenkins.sh`.
 
 ### Environment Variables
 
+* `JENKINS_USERNAME`: Username to login to the local Jenkins instance.
+* `JENKINS_PASSWORD`: Password for the above user.
+* `NOTIFICATION_EMAIL`: Email address to configure for build failure
+  notifications.
+
 * `BOXES_BUILD_TIME`: Used to coordinate the time a set of builds is run.
 * `ATLAS_USER`: The user under which the box should be handled.
+* `ATLAS_TOKEN`: Token for accessing Atlas.
 
 ## Author
 
