@@ -4,7 +4,7 @@ GEM
     atlas (1.2.1)
       excon (~> 0.45)
       json (~> 1.8)
-    boxes (2.0.0)
+    boxes (2.0.1)
       claide (~> 0.9)
       colored (~> 1.2)
     claide (0.9.1)
