@@ -1,0 +1,59 @@
+#!/usr/bin/env ruby
+
+begin
+  require "bundler/setup"
+rescue LoadError
+  puts "You must `gem install bundler` and `bundle install` to run this."
+end
+
+require "yaml"
+require "optparse"
+
+class Local
+  class << self
+    def list
+      boxes = YAML.load_file("boxes.yml")
+      boxes.map { |name, _| name }
+    end
+
+    def list_with_scripts
+      boxes = YAML.load_file("boxes.yml")
+
+      names = boxes.map do |name, metadata|
+        scripts = metadata["scripts"].join(", ")
+
+        "#{name} (#{scripts})"
+      end
+
+      names
+    end
+
+    def run(names = [])
+      names.each do |name|
+        boxes = YAML.load_file("boxes.yml")
+        template, scripts = boxes[name].values
+
+        # override for "contrib" boxes
+        env = "ATLAS_USER=nickcharlton " if name == "ruby-box"
+
+        system "#{env}bin/run #{name} #{template} #{scripts.join(',')}"
+      end
+    end
+  end
+end
+
+OptionParser.new do |opts|
+  opts.banner = "Usage bin/local [options]"
+
+  opts.on("-l", "--list", "List known boxes") do
+    puts Local.list_with_scripts
+  end
+
+  opts.on("-r", "--run [name]", "Run a build") do |r|
+    Local.run([r])
+  end
+
+  opts.on("-a", "--run-all", "Run all boxes builds") do
+    Local.run(Local.list)
+  end
+end.parse!
