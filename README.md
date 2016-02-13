@@ -1,9 +1,12 @@
 # boxes-runner
 
-This small project gets the standard [boxes][] builds running inside
-[Jenkins][]. It creates a Jenkins job for each of the builds listed inside
-`boxes.yml` (with `configure_jobs`) and runs a build, taking the output and
-uploading it to [Atlas][] (using [atlas-ruby][]) (with `run`).
+This project makes running the standard set of [boxes][] builds running easily.
+It provides scripts for configuring [Jenkins][] and for running locally.
+
+It can create a Jenkins job for each of the builds listed inside `boxes.yml`
+(with `configure_jobs`) and runs a build, taking the output and
+uploading it to [Atlas][] (using [atlas-ruby][]) (with `run`). With `local`, it
+can parse `boxes.yml` and run a single build or all builds.
 
 `jenkins.sh` gives the script used to spawn the initial configuration job.
 
@@ -26,6 +29,27 @@ like the script contained in `jenkins.sh`.
 * `BOXES_BUILD_TIME`: Used to coordinate the time a set of builds is run.
 * `ATLAS_USER`: The user under which the box should be handled.
 * `ATLAS_TOKEN`: Token for accessing Atlas.
+
+### Locally
+
+Whilst the above is relevant when using with Jenkins, running locally is
+similar. e.g.:
+
+```sh
+$ bin/local --list
+precise64-standard (puppet.sh, chef.sh)
+precise64-ansible (ansible.sh)
+precise64-chef (chef.sh)
+```
+
+```sh
+$ bin/local --run precise64-standard
+Starting build for: ruby-box-virtualbox...
+ruby-box-virtualbox output will be in this color.
+[ ... ]
+```
+
+Run `bin/local --help` to see the other arguments.
 
 ## Author
 
