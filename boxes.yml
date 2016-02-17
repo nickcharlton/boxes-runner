@@ -50,6 +50,23 @@ wheezy64-puppet:
   template: ubuntu/wheezy64
   scripts:
     - puppet.sh
+jessie64-standard:
+  template: ubuntu/jessie64
+  scripts:
+    - puppet.sh
+    - chef.sh
+jessie64-ansible:
+  template: ubuntu/jessie64
+  scripts:
+    - ansible.sh
+jessie64-chef:
+  template: ubuntu/jessie64
+  scripts:
+    - chef.sh
+jessie64-puppet:
+  template: ubuntu/jessie64
+  scripts:
+    - puppet.sh
 ruby-box:
   template: ubuntu/trusty64
   scripts:
