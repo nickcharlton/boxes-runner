@@ -67,6 +67,40 @@ jessie64-puppet:
   template: ubuntu/jessie64
   scripts:
     - puppet.sh
+vivid64-standard:
+  template: ubuntu/vivid64
+  scripts:
+    - puppet.sh
+    - chef.sh
+vivid64-ansible:
+  template: ubuntu/vivid64
+  scripts:
+    - ansible.sh
+vivid64-chef:
+  template: ubuntu/vivid64
+  scripts:
+    - chef.sh
+vivid64-puppet:
+  template: ubuntu/vivid64
+  scripts:
+    - puppet.sh
+wily64-standard:
+  template: ubuntu/wily64
+  scripts:
+    - puppet.sh
+    - chef.sh
+wily64-ansible:
+  template: ubuntu/wily64
+  scripts:
+    - ansible.sh
+wily64-chef:
+  template: ubuntu/wily64
+  scripts:
+    - chef.sh
+wily64-puppet:
+  template: ubuntu/wily64
+  scripts:
+    - puppet.sh
 ruby-box:
   template: ubuntu/trusty64
   scripts:
