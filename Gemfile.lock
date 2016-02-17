@@ -1,17 +1,12 @@
-GIT
-  remote: https://github.com/nickcharlton/boxes.git
-  revision: 139bba06549fcf714539f3cfa5616baf0c531289
-  specs:
-    boxes (2.0.2)
-      claide (~> 0.9)
-      colored (~> 1.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
-    atlas (1.2.1)
+    atlas (1.3.0)
       excon (~> 0.45)
       json (~> 1.8)
+    boxes (2.1.0)
+      claide (~> 0.9)
+      colored (~> 1.2)
     claide (0.9.1)
     colored (1.2)
     excon (0.45.4)
@@ -23,8 +18,8 @@ GEM
       thor (>= 0.16.0)
     json (1.8.3)
     mini_portile2 (2.0.0)
-    mixlib-shellout (2.2.5)
-    nokogiri (1.6.7.1)
+    mixlib-shellout (2.2.6)
+    nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     terminal-table (1.5.2)
     thor (0.19.1)
@@ -34,8 +29,8 @@ PLATFORMS
 
 DEPENDENCIES
   atlas (~> 1.2)
-  boxes!
+  boxes (~> 2.1)
   jenkins_api_client (~> 1.4)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
