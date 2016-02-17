@@ -33,6 +33,23 @@ trusty64-puppet:
   template: ubuntu/trusty64
   scripts:
     - puppet.sh
+wheezy64-standard:
+  template: ubuntu/wheezy64
+  scripts:
+    - puppet.sh
+    - chef.sh
+wheezy64-ansible:
+  template: ubuntu/wheezy64
+  scripts:
+    - ansible.sh
+wheezy64-chef:
+  template: ubuntu/wheezy64
+  scripts:
+    - chef.sh
+wheezy64-puppet:
+  template: ubuntu/wheezy64
+  scripts:
+    - puppet.sh
 ruby-box:
   template: ubuntu/trusty64
   scripts:
