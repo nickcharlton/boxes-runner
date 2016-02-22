@@ -34,41 +34,41 @@ trusty64-puppet:
   scripts:
     - puppet.sh
 wheezy64-standard:
-  template: ubuntu/wheezy64
+  template: debian/wheezy64
   scripts:
     - puppet.sh
     - chef.sh
 wheezy64-ansible:
-  template: ubuntu/wheezy64
+  template: debian/wheezy64
   scripts:
     - ansible.sh
 wheezy64-chef:
-  template: ubuntu/wheezy64
+  template: debian/wheezy64
   scripts:
     - chef.sh
 wheezy64-puppet:
-  template: ubuntu/wheezy64
+  template: debian/wheezy64
   scripts:
     - puppet.sh
 jessie64-standard:
-  template: ubuntu/jessie64
+  template: debian/jessie64
   scripts:
     - puppet.sh
     - chef.sh
 jessie64-ansible:
-  template: ubuntu/jessie64
+  template: debian/jessie64
   scripts:
     - ansible.sh
 jessie64-chef:
-  template: ubuntu/jessie64
+  template: debian/jessie64
   scripts:
     - chef.sh
 jessie64-puppet:
-  template: ubuntu/jessie64
+  template: debian/jessie64
   scripts:
     - puppet.sh
 vivid64-standard:
-  template: ubuntu/vivid64
+  template: debian/vivid64
   scripts:
     - puppet.sh
     - chef.sh
