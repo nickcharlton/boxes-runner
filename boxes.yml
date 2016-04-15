@@ -68,7 +68,7 @@ jessie64-puppet:
   scripts:
     - puppet.sh
 vivid64-standard:
-  template: debian/vivid64
+  template: ubuntu/vivid64
   scripts:
     - puppet.sh
     - chef.sh
