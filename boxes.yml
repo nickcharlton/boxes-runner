@@ -101,7 +101,7 @@ wily64-puppet:
   template: ubuntu/wily64
   scripts:
     - puppet.sh
-ruby-box:
+ruby:
   template: ubuntu/trusty64
   scripts:
     - ruby.sh

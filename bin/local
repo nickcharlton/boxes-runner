@@ -33,9 +33,6 @@ class Local
         boxes = YAML.load_file("boxes.yml")
         template, scripts = boxes[name].values
 
-        # override for "contrib" boxes
-        env = "ATLAS_USER=nickcharlton " if name == "ruby-box"
-
         system "#{env}bin/run #{name} #{template} #{scripts.join(',')}"
       end
     end
