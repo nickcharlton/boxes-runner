@@ -44,8 +44,8 @@ precise64-chef (chef.sh)
 
 ```sh
 $ bin/local --run precise64-standard
-Starting build for: ruby-box-virtualbox...
-ruby-box-virtualbox output will be in this color.
+Starting build for: precise64-standard--virtualbox...
+precise64-standard-virtualbox output will be in this color.
 [ ... ]
 ```
 
