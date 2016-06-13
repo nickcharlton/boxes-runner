@@ -33,7 +33,7 @@ class Local
         boxes = YAML.load_file("boxes.yml")
         template, scripts = boxes[name].values
 
-        system "#{env}bin/run #{name} #{template} #{scripts.join(',')}"
+        system("bin/run #{name} #{template} #{scripts.join(',')}")
       end
     end
   end
