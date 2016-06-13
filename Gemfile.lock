@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/nickcharlton/boxes.git
-  revision: 6fd25ce74e2ee19f45a0f11d9d88e4be7ecb6360
+  revision: 0d7e29a8e8f971652d72fed4fd7a349bf1c6f8c0
   specs:
-    boxes (2.1.1)
+    boxes (2.3.0)
       claide (~> 0.9)
       colored (~> 1.2)
 
