@@ -105,3 +105,9 @@ ruby:
   template: ubuntu/xenial64
   scripts:
     - ruby.sh
+rails:
+  template: ubuntu/xenial64
+  scripts:
+    - ruby.sh
+    - postgres.sh
+    - mysql.sh
