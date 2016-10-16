@@ -8,11 +8,25 @@ end
 
 require 'atlas'
 require 'boxes/version'
+require "ruby-progressbar"
 
 def die(message = nil)
   $stderr.puts "#{$PROGRAM_NAME} failed with code: #{$CHILD_STATUS}"
   $stderr.puts "#{message}" if message
   exit 1
+end
+
+def upload_box(provider, file)
+  progress_bar = ProgressBar.create(total: file.size)
+
+  provider.upload(file) do |progress, size|
+    diff = size - progress
+    if diff < size
+      progress_bar.progress += diff
+    end
+  end
+
+  progress_bar.finish
 end
 
 # ensure we know which to build
@@ -60,11 +74,11 @@ providers.each do |name|
 
   puts 'Uploading...'
   begin
-    provider.upload(file)
+    upload_box(provider, file)
   rescue Atlas::Errors::TimeoutError
     puts 'Failed to upload, trying again...'
 
-    provider.upload(file)
+    upload_box(provider, file)
   end
 
   file.close
