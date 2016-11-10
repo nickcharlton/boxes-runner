@@ -1,20 +1,19 @@
 GIT
   remote: git://github.com/nickcharlton/boxes.git
-  revision: 6a5f68a91e6d172209964501ca127985041a838f
+  revision: a41885dfb7c8c9b17a4a71467988b9d921d441a2
   specs:
-    boxes (2.3.0)
-      claide (~> 0.9)
-      colored (~> 1.2)
+    boxes (2.4.0)
+      claide
+      colored
 
 GEM
   remote: https://rubygems.org/
   specs:
-    atlas (1.3.0)
+    atlas (1.4.0)
       excon (~> 0.45)
-      json (~> 1.8)
-    claide (0.9.1)
+    claide (1.0.1)
     colored (1.2)
-    excon (0.53.0)
+    excon (0.54.0)
     jenkins_api_client (1.4.5)
       json (~> 1.0)
       mixlib-shellout (>= 1.1.0)
