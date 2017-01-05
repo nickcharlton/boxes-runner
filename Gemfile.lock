@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/nickcharlton/boxes.git
-  revision: a41885dfb7c8c9b17a4a71467988b9d921d441a2
+  revision: 2f8c125e06f68cde5a0be91bbc70705bd50c5a38
   specs:
     boxes (2.4.0)
       claide
@@ -9,7 +9,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    atlas (1.4.0)
+    atlas (1.5.0)
       excon (~> 0.45)
     claide (1.0.1)
     colored (1.2)
@@ -29,8 +29,8 @@ GEM
     socksify (1.7.0)
     terminal-table (1.7.3)
       unicode-display_width (~> 1.1.1)
-    thor (0.19.1)
-    unicode-display_width (1.1.1)
+    thor (0.19.4)
+    unicode-display_width (1.1.2)
 
 PLATFORMS
   ruby
@@ -41,4 +41,4 @@ DEPENDENCIES
   jenkins_api_client (~> 1.4)
 
 BUNDLED WITH
-   1.11.2
+   1.13.7
