@@ -1,28 +1,28 @@
 #!/usr/bin/env ruby
 
 begin
-  require 'bundler/setup'
+  require "bundler/setup"
 rescue LoadError
-  puts 'You must `gem install bundler` and `bundle install` to run this.'
+  puts "You must `gem install bundler` and `bundle install` to run this."
 end
 
-require 'atlas'
-require 'boxes/version'
+require "atlas"
+require "boxes/version"
 
 def die(message = nil)
-  $stderr.puts "#{$PROGRAM_NAME} failed with code: #{$CHILD_STATUS}"
-  $stderr.puts "#{message}" if message
+  $stderr.puts("#{$PROGRAM_NAME} failed with code: #{$CHILD_STATUS}")
+  $stderr.puts(message) if message
   exit 1
 end
 
 # ensure we know which to build
-die('box arguments must be provided') unless ARGV.length == 3
+die("box arguments must be provided") unless ARGV.length == 3
 
 $stdout.sync = true # always write output without buffering
 
 # collect everything we need
-start_time = ENV['BOXES_START_TIME'] || Time.now.utc
-atlas_user = ENV['ATLAS_USER'] || 'boxesio'
+start_time = ENV["BOXES_START_TIME"] || Time.now.utc
+atlas_user = ENV["ATLAS_USER"] || "boxesio"
 box_name = ARGV[0]
 box_template = ARGV[1]
 box_scripts = ARGV[2]
@@ -41,10 +41,10 @@ end
 
 # setup Atlas and upload them
 Atlas.configure do |config|
-  config.access_token = ENV['ATLAS_TOKEN'] || ''
+  config.access_token = ENV["ATLAS_TOKEN"] || ""
 end
 
-puts 'Fetching box details from Atlas...'
+puts "Fetching box details from Atlas..."
 box = Atlas::Box.find("#{atlas_user}/#{box_name}")
 
 puts "Creating version: #{box_version}..."
@@ -53,16 +53,16 @@ version = box.create_version(version: box_version)
 # create new providers for each provider
 providers.each do |name|
   file = File.open("#{box_name}-#{name}.box")
-  provider_name = name == 'vmware' ? 'vmware_desktop' : name
+  provider_name = name == "vmware" ? "vmware_desktop" : name
 
   puts "Creating provider: #{provider_name}..."
   provider = version.create_provider(name: provider_name)
 
-  puts 'Uploading...'
+  puts "Uploading..."
   begin
     provider.upload(file)
   rescue Atlas::Errors::TimeoutError
-    puts 'Failed to upload, trying again...'
+    puts "Failed to upload, trying again..."
 
     provider.upload(file)
   end
@@ -71,9 +71,9 @@ providers.each do |name|
 end
 
 # release the version
-puts 'Releasing version...'
+puts "Releasing version..."
 version.release
 
 # and done
-puts 'Run complete.'
+puts "Run complete."
 puts "Built #{box_name} (#{providers.join(' ')}) successfully."
