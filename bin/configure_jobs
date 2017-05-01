@@ -10,7 +10,7 @@ require "jenkins_api_client"
 
 config = ->(k) { ENV[k] || fail("#{k} must be configured.") }
 
-jenkins = JenkinsApi::Client.new(server_ip: "127.0.0.1",
+jenkins = JenkinsApi::Client.new(server_url: "https://jenkins.nullgrid.net",
                                  username: config["JENKINS_USERNAME"],
                                  password: config["JENKINS_PASSWORD"])
 
