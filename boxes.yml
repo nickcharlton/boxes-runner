@@ -84,23 +84,6 @@ xenial64-puppet:
   template: ubuntu/xenial64
   scripts:
     - puppet.sh
-wily64-standard:
-  template: ubuntu/wily64
-  scripts:
-    - puppet.sh
-    - chef.sh
-wily64-ansible:
-  template: ubuntu/wily64
-  scripts:
-    - ansible.sh
-wily64-chef:
-  template: ubuntu/wily64
-  scripts:
-    - chef.sh
-wily64-puppet:
-  template: ubuntu/wily64
-  scripts:
-    - puppet.sh
 ruby:
   template: ubuntu/xenial64
   scripts:
