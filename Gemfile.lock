@@ -3,10 +3,10 @@ GEM
   specs:
     atlas (1.5.0)
       excon (~> 0.45)
-    boxes (2.5.0)
+    boxes (3.0.0)
       claide
       colored
-    claide (1.0.1)
+    claide (1.0.2)
     colored (1.2)
     excon (0.55.0)
     jenkins_api_client (1.5.3)
@@ -32,8 +32,8 @@ PLATFORMS
 
 DEPENDENCIES
   atlas (~> 1.2)
-  boxes (= 2.5.0)
+  boxes (= 3.0.0)
   jenkins_api_client (~> 1.4)
 
 BUNDLED WITH
-   1.13.7
+   1.16.0
