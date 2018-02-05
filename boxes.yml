@@ -67,6 +67,23 @@ jessie64-puppet:
   template: debian/jessie64
   scripts:
     - puppet.sh
+stretch64-standard:
+  template: debian/stretch64
+  scripts:
+    - puppet.sh
+    - chef.sh
+stretch64-ansible:
+  template: debian/stretch64
+  scripts:
+    - ansible.sh
+stretch64-chef:
+  template: debian/stretch64
+  scripts:
+    - chef.sh
+stretch64-puppet:
+  template: debian/stretch64
+  scripts:
+    - puppet.sh
 xenial64-standard:
   template: ubuntu/xenial64
   scripts:
