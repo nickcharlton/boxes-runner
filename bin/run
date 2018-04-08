@@ -41,7 +41,7 @@ end
 
 # setup Atlas and upload them
 Atlas.configure do |config|
-  config.access_token = ENV["ATLAS_TOKEN"] || ""
+  config.token = ENV["ATLAS_TOKEN"] || ""
 end
 
 puts "Fetching box details from Atlas..."

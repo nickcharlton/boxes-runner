@@ -1,14 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    atlas (1.6.0)
+    atlas (2.0.0)
       excon (~> 0.45)
-    boxes (3.0.0)
+    boxes (3.1.0)
       claide
       colored
     claide (1.0.2)
     colored (1.2)
-    excon (0.60.0)
+    excon (0.62.0)
     jenkins_api_client (1.5.3)
       json (>= 1.0)
       mixlib-shellout (>= 1.1.0)
@@ -32,7 +32,7 @@ PLATFORMS
 
 DEPENDENCIES
   atlas
-  boxes (= 3.0.0)
+  boxes
   jenkins_api_client (~> 1.4)
 
 BUNDLED WITH
