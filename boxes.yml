@@ -4,10 +4,6 @@ precise64-standard:
   scripts:
     - puppet.sh
     - chef.sh
-precise64-ansible:
-  template: ubuntu/precise64
-  scripts:
-    - ansible.sh
 precise64-chef:
   template: ubuntu/precise64
   scripts:
@@ -21,10 +17,6 @@ trusty64-standard:
   scripts:
     - puppet.sh
     - chef.sh
-trusty64-ansible:
-  template: ubuntu/trusty64
-  scripts:
-    - ansible.sh
 trusty64-chef:
   template: ubuntu/trusty64
   scripts:
@@ -38,10 +30,6 @@ wheezy64-standard:
   scripts:
     - puppet.sh
     - chef.sh
-wheezy64-ansible:
-  template: debian/wheezy64
-  scripts:
-    - ansible.sh
 wheezy64-chef:
   template: debian/wheezy64
   scripts:
@@ -55,10 +43,6 @@ jessie64-standard:
   scripts:
     - puppet.sh
     - chef.sh
-jessie64-ansible:
-  template: debian/jessie64
-  scripts:
-    - ansible.sh
 jessie64-chef:
   template: debian/jessie64
   scripts:
@@ -72,10 +56,6 @@ stretch64-standard:
   scripts:
     - puppet.sh
     - chef.sh
-stretch64-ansible:
-  template: debian/stretch64
-  scripts:
-    - ansible.sh
 stretch64-chef:
   template: debian/stretch64
   scripts:
@@ -89,10 +69,6 @@ xenial64-standard:
   scripts:
     - puppet.sh
     - chef.sh
-xenial64-ansible:
-  template: ubuntu/xenial64
-  scripts:
-    - ansible.sh
 xenial64-chef:
   template: ubuntu/xenial64
   scripts:
