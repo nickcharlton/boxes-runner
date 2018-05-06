@@ -1,4 +1,6 @@
 ---
+precise64:
+  template: ubuntu/precise64
 precise64-standard:
   template: ubuntu/precise64
   scripts:
@@ -12,6 +14,8 @@ precise64-puppet:
   template: ubuntu/precise64
   scripts:
     - puppet.sh
+trusty64:
+  template: ubuntu/trusty64
 trusty64-standard:
   template: ubuntu/trusty64
   scripts:
@@ -25,6 +29,8 @@ trusty64-puppet:
   template: ubuntu/trusty64
   scripts:
     - puppet.sh
+wheezy64:
+  template: debian/wheezy64
 wheezy64-standard:
   template: debian/wheezy64
   scripts:
@@ -38,6 +44,8 @@ wheezy64-puppet:
   template: debian/wheezy64
   scripts:
     - puppet.sh
+jessie64:
+  template: debian/jessie64
 jessie64-standard:
   template: debian/jessie64
   scripts:
@@ -51,6 +59,8 @@ jessie64-puppet:
   template: debian/jessie64
   scripts:
     - puppet.sh
+stretch64:
+  template: debian/stretch64
 stretch64-standard:
   template: debian/stretch64
   scripts:
@@ -64,6 +74,8 @@ stretch64-puppet:
   template: debian/stretch64
   scripts:
     - puppet.sh
+xenial64:
+  template: ubuntu/xenial64
 xenial64-standard:
   template: ubuntu/xenial64
   scripts:

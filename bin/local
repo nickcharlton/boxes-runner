@@ -12,17 +12,18 @@ require "optparse"
 class Local
   class << self
     def list
-      boxes = YAML.load_file("boxes.yml")
       boxes.map { |name, _| name }
     end
 
     def list_with_scripts
-      boxes = YAML.load_file("boxes.yml")
-
       names = boxes.map do |name, metadata|
-        scripts = metadata["scripts"].join(", ")
+        scripts = metadata.fetch("scripts", []).join(", ")
 
-        "#{name} (#{scripts})"
+        if scripts.empty?
+          name
+        else
+          "#{name} (#{scripts})"
+        end
       end
 
       names
@@ -30,11 +31,18 @@ class Local
 
     def run(names = [])
       names.each do |name|
-        boxes = YAML.load_file("boxes.yml")
-        template, scripts = boxes[name].values
+        box = boxes[name]
+        template = box["template"]
+        scripts = box.fetch("scripts", [])
 
         system("bin/run #{name} #{template} #{scripts.join(',')}")
       end
+    end
+
+    private
+
+    def boxes
+      @boxes ||= YAML.load_file("boxes.yml")
     end
   end
 end

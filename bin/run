@@ -16,7 +16,7 @@ def die(message = nil)
 end
 
 # ensure we know which to build
-die("box arguments must be provided") unless ARGV.length == 3
+die("box arguments must be provided") unless ARGV.length >= 2
 
 $stdout.sync = true # always write output without buffering
 
