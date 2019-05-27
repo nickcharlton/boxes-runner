@@ -59,6 +59,21 @@ xenial64-puppet:
   template: ubuntu/xenial64
   scripts:
     - puppet.sh
+bionic64:
+  template: ubuntu/bionic64
+bionic64-standard:
+  template: ubuntu/bionic64
+  scripts:
+    - puppet.sh
+    - chef.sh
+bionic64-chef:
+  template: ubuntu/bionic64
+  scripts:
+    - chef.sh
+bionic64-puppet:
+  template: ubuntu/bionic64
+  scripts:
+    - puppet.sh
 ruby:
   template: ubuntu/xenial64
   scripts:
