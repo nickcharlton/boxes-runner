@@ -14,21 +14,6 @@ trusty64-puppet:
   template: ubuntu/trusty64
   scripts:
     - puppet.sh
-wheezy64:
-  template: debian/wheezy64
-wheezy64-standard:
-  template: debian/wheezy64
-  scripts:
-    - puppet.sh
-    - chef.sh
-wheezy64-chef:
-  template: debian/wheezy64
-  scripts:
-    - chef.sh
-wheezy64-puppet:
-  template: debian/wheezy64
-  scripts:
-    - puppet.sh
 jessie64:
   template: debian/jessie64
 jessie64-standard:
