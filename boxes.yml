@@ -1,19 +1,4 @@
 ---
-precise64:
-  template: ubuntu/precise64
-precise64-standard:
-  template: ubuntu/precise64
-  scripts:
-    - puppet.sh
-    - chef.sh
-precise64-chef:
-  template: ubuntu/precise64
-  scripts:
-    - chef.sh
-precise64-puppet:
-  template: ubuntu/precise64
-  scripts:
-    - puppet.sh
 trusty64:
   template: ubuntu/trusty64
 trusty64-standard:
