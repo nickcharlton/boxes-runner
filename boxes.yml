@@ -75,11 +75,11 @@ bionic64-puppet:
   scripts:
     - puppet.sh
 ruby:
-  template: ubuntu/xenial64
+  template: ubuntu/bionic64
   scripts:
     - ruby.sh
 rails:
-  template: ubuntu/xenial64
+  template: ubuntu/bionic64
   scripts:
     - ruby.sh
     - postgres.sh
