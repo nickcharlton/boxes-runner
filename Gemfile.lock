@@ -8,7 +8,7 @@ GEM
       colored
     claide (1.0.2)
     colored (1.2)
-    excon (0.62.0)
+    excon (0.71.0)
     jenkins_api_client (1.5.3)
       json (>= 1.0)
       mixlib-shellout (>= 1.1.0)
