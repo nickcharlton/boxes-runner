@@ -74,6 +74,21 @@ bionic64-puppet:
   template: ubuntu/bionic64
   scripts:
     - puppet.sh
+buster64:
+  template: debian/buster64
+buster64-standard:
+  template: debian/buster64
+  scripts:
+    - puppet.sh
+    - chef.sh
+buster64-chef:
+  template: debian/buster64
+  scripts:
+    - chef.sh
+buster64-puppet:
+  template: debian/buster64
+  scripts:
+    - puppet.sh
 ruby:
   template: ubuntu/bionic64
   scripts:
