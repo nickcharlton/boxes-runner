@@ -3,7 +3,7 @@ GEM
   specs:
     atlas (2.0.0)
       excon (~> 0.45)
-    boxes (3.6.1)
+    boxes (3.7.0)
       claide
       colored
     claide (1.0.3)
